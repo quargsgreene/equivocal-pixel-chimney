@@ -1,0 +1,23 @@
+{
+  "name": "equivocal-pixel-chimney",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quargsgreene/equivocal-pixel-chimney.git"
+  },
+  "author": "Quargs Greene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quargsgreene/equivocal-pixel-chimney/issues"
+  },
+  "homepage": "https://github.com/quargsgreene/equivocal-pixel-chimney#readme",
+  "dependencies": {
+    "gh-pages": "^4.0.0"
+  }
+}
