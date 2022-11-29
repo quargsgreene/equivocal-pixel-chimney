@@ -23,7 +23,7 @@ function main() {
   camera.position.z = 75;
   const listener = new THREE.AudioListener;
   camera.add(listener);
- 
+
 
   let controls = new OrbitControls(camera, canvas);
   controls.target.set(0,0,0);
@@ -33,34 +33,34 @@ function main() {
   const blobsRot = [];
 
   // play sound
-  const soundFile = 'sounds/Cherry-Pie-temp.mp3';
+  const soundFile = 'sounds/Wasted Mix 11182022 (1).mp3';
   const audioLoader = new THREE.AudioLoader();
   const sound = new THREE.PositionalAudio(listener);
   audioLoader.load(soundFile, (buffer) => {
     sound.setBuffer(buffer);
     sound.setLoop(true);
     sound.play();
-    
+
   })
-  
+
 // lights
-  
+
   const color = 0xf7cbcb;
   const directLightIntensity = 0.75;
   const dirLight = new THREE.DirectionalLight(color, directLightIntensity );
   dirLight.position.set(-1, 2, 4);
   scene.add(dirLight);
-  
+
   const upperColor = 0x8c0c03;
   const lowerColor = 0xff8585;
   const hemisphereLightIntensity = 0.5;
   const hemLight = new THREE.HemisphereLight(upperColor, lowerColor, hemisphereLightIntensity);
   scene.add(hemLight);
-  
+
   const loader = new THREE.TextureLoader();
 
-  const wireframeMaterial = new THREE.MeshPhongMaterial({wireframe: true, color:0x4a376d}); 
-  
+  const wireframeMaterial = new THREE.MeshPhongMaterial({wireframe: true, color:0x4a376d});
+
   // background
 
   const bgRadius = 100;
@@ -69,7 +69,7 @@ function main() {
   const bgTexture = loader.load('images/bg1.jpg', (texture) => {
     texture.wrapS = texture.wrapT = THREE.MirroredRepeatWrapping;
     texture.minFilter = THREE.LinearFilter;
-    
+
   });
   const bgMaterial = new THREE.MeshBasicMaterial({map: bgTexture, side: THREE.BackSide});
   const bgGeometry = new THREE.SphereGeometry(bgRadius, bgWidthSegments, bgHeightSegments);
@@ -194,7 +194,7 @@ function main() {
 
   const musicalBlackBox = new THREE.Mesh(blackBoxGeometry,blackBoxMaterial);
   musicalBlackBox.position.set(-200,120,100);
-  scene.add(musicalBlackBox);  
+  scene.add(musicalBlackBox);
   musicalBlackBox.add(sound);
 
   // twisted flesh stem
@@ -265,7 +265,7 @@ function main() {
       model2.position.z = 35;
       model2.position.x = 30;
       model2.position.y = -20;
-    
+
       scene.add(model2);
 
   });
@@ -276,7 +276,7 @@ function main() {
     time *= 0.001;
 
     bgFrame.rotation.y += 0.1 * Math.tan(2 * Math.PI * time);
-    
+
     ball.rotation.y += 0.01;
     fleshStem.position.x ++;
     if(fleshStem.position.x > bgRadius/2 || fleshStem.position.x < -bgRadius/2){
@@ -288,7 +288,7 @@ function main() {
     if(greenStem.position.y > bgRadius/2 || greenStem.position.y < -bgRadius/2 ){
       greenStem.position.y *= -1;
     }
-    
+
     darkStem.position.z += Math.cos(2 * Math.PI * time);
     darkStemTwin.position.z += Math.sin(2 * Math.PI * time);
     blobsRot.forEach((b) =>{
@@ -308,7 +308,7 @@ function main() {
     musicalBlackBox.position.y -= 10 * Math.sin( 10 * Math.PI * time);
     musicalBlackBox.rotation.y -= Math.tan( 2 * Math.PI * time);
 
-    
+
     if(model){
       model.rotation.z += 1;
     }
